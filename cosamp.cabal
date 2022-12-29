@@ -1,0 +1,76 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           cosamp
+version:        0.1.0.0
+synopsis:       Compressive Sampling Matched Pursuit (CoSaMP) algorithm as presented in Needell and Tropp's 2008 paper http://arxiv.org/abs/0803.2392.
+description:    Please see the README on GitHub at <https://github.com/augustunderground/cosamp#readme>
+category:       Algorithm
+homepage:       https://github.com/augustunderground/cosamp#readme
+bug-reports:    https://github.com/augustunderground/cosamp/issues
+author:         Yannick Uhlmann
+maintainer:     augustunderground@pm.me
+copyright:      2022 Yannick Uhlmann
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/augustunderground/cosamp
+
+library
+  exposed-modules:
+      CoSaMP
+  other-modules:
+      Paths_cosamp
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , hmatrix
+    , hmatrix-gsl
+    , mtl
+    , statistics
+    , vector
+  default-language: Haskell2010
+
+executable cosamp-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , cosamp
+    , hmatrix
+    , hmatrix-gsl
+    , mtl
+    , statistics
+    , vector
+  default-language: Haskell2010
+
+test-suite cosamp-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_cosamp
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , cosamp
+    , hmatrix
+    , hmatrix-gsl
+    , mtl
+    , statistics
+    , vector
+  default-language: Haskell2010

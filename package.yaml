@@ -1,0 +1,63 @@
+name:                cosamp
+version:             0.1.0.0
+github:              "augustunderground/cosamp"
+license:             BSD3
+author:              "Yannick Uhlmann"
+maintainer:          "augustunderground@pm.me"
+copyright:           "2022 Yannick Uhlmann"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+synopsis:            Compressive Sampling Matched Pursuit (CoSaMP) algorithm as presented in Needell and Tropp's 2008 paper http://arxiv.org/abs/0803.2392. 
+category:            Algorithm
+
+description:         Please see the README on GitHub at <https://github.com/augustunderground/cosamp#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- vector
+- hmatrix
+- hmatrix-gsl
+- statistics
+- mtl
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  cosamp-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - cosamp
+    when:
+    - condition: false
+      other-modules: Paths_cosamp
+
+tests:
+  cosamp-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - cosamp

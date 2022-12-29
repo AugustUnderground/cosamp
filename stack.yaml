@@ -1,0 +1,10 @@
+resolver: nightly-2022-11-12
+compiler: ghc-9.2.4
+
+packages:
+- .
+
+# extra-deps: []
+
+# extra-include-dirs: [/path/to/dir]
+# extra-lib-dirs: [/path/to/dir]
