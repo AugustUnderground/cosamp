@@ -11,7 +11,7 @@ Add this to `stack.yaml`:
 ```yaml
 extra-deps:
  - github: augustunderground/cosamp
-   commit: <current-commit>
+   commit: 264f4ec2f6a74d10a7cc484e0bbbe7f24d85d3cc
 ```
 
 ## Example
